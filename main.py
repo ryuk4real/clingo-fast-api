@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
-from clingo import Control
+from clingo import Control  
 from lib.converter import answer_set_to_json
 
 app = FastAPI(
@@ -27,10 +27,11 @@ async def unicorn_exception_handler(request: Request, exc: RequestValidationErro
 # clingo-api ---------------------------------------------------------------------
 
 control = Control(arguments=["--opt-mode=optN"])
-answer_sets = []
+answer_sets = None
 
 def on_model(model):
-    global answer_sets
+    #global answer_sets
+    #answer_sets.append(answer_set_to_json(str(model)))
     answer_sets.append(answer_set_to_json(str(model)))
 
 # --------------------------------------------------------------------------------
@@ -43,6 +44,8 @@ def on_model(model):
 @app.post("/answer-sets", status_code=200, response_model=list)
 async def run(request: Request) -> dict:
 
+    global answer_sets
+    answer_sets = []
     program = await request.body()
 
     if not program:

@@ -1,10 +1,12 @@
 import json
 
-def answer_set_to_json(answer_set) -> dict:
+def answer_set_to_json(answer_set):
   atoms = []
 
   # Split the answer set by spaces
   answer_set = answer_set.split()
+
+  counter = 0
 
   # Loop through each element in the answer set
   for element in answer_set:
@@ -12,14 +14,11 @@ def answer_set_to_json(answer_set) -> dict:
     element = element.replace("(", " ")
     element = element.replace(")", " ")
     element = element.replace(",", " ")
-
-    # Split the element by spaces and add it to an array
+  
+    # Split the element by spaces
     element = element.split()
 
-    # Convert the element to a dictionary with keys "predicate" and "arguments"
-    element = {"predicate": element[0], "arguments": element[1:]}
+    # Loop through each element in the element
+    atoms.append({"predicate": element[0], "arguments": element[1:]})
 
-    # Append the element to the atoms list
-    atoms.append(element)
-
-  return json.loads(json.dumps(atoms))
+  return atoms
