@@ -13,7 +13,7 @@ This API is designed to process Answer Set Programming (ASP) code. Users can sen
 
 To install the required packages, run the following command:
 
-```
+```bash
 pip install fastapi uvicorn
 ```
 
@@ -21,7 +21,7 @@ pip install fastapi uvicorn
 
 To start the API, use the following command:
 
-```
+```bash
 uvicorn main:app
 ```
 
@@ -31,7 +31,7 @@ The --reload flag enables auto-reloading so the server will restart after code c
 
 ### POST /answer-sets
 
-Send your ASP program as the request body to this endpoint. The API will return the answer sets for the given program. 
+Send your ASP program as the request body to this endpoint. The API will return the answer sets for the given program.
 
 ### Request Body
 
@@ -59,15 +59,13 @@ Replace your_asp_program_here with your actual ASP program.
 
 For development purposes, you can run the API in reload mode to enable hot-reloading. This will restart the server after code changes.
 
-```
+```bash
 uvicorn main:app --reload
 ```
 
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
-
-
 
 - - -
 This README provides a basic overview of the API’s functionality. You can expand it with more detailed documentation, examples, and configuration options as needed for your API.
