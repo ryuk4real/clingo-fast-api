@@ -46,7 +46,7 @@ To make an API call to the POST method, use the following `curl` command:
 
 ```bash
 curl -X ‘POST’
-‘http://127.0.0.1:8000/solve’
+‘http://127.0.0.1:8000/answer-sets’
 -H ‘accept: application/json’
 -H ‘Content-Type: text/plain’
 -d ‘Your ASP problem here’
