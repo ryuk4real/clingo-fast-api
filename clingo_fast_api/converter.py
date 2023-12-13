@@ -1,22 +1,10 @@
-def answer_set_to_json(answer_set):
-  atoms = []
+from typing import Iterable
+from clingo import Model, SymbolType
 
-  # Split the answer set by spaces
-  answer_set = answer_set.split()
-
-  counter = 0
-
-  # Loop through each element in the answer set
-  for element in answer_set:
-    # Remove the parentheses and commas
-    element = element.replace("(", " ")
-    element = element.replace(")", " ")
-    element = element.replace(",", " ")
-  
-    # Split the element by spaces
-    element = element.split()
-
-    # Loop through each element in the element
-    atoms.append({"predicate": element[0], "arguments": element[1:]})
-
-  return atoms
+def to_atoms(model: Model) -> Iterable[str]:
+    answer_set = []
+    
+    for atom in model.symbols(shown=True):
+        answer_set.append(str(atom))
+        
+    return answer_set
