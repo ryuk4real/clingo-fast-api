@@ -10,7 +10,7 @@ This Python application is designed to solve Answer Set Programming (ASP) proble
 - **Easy to Run**: Launch the application from the main using
 
 ```bash
-python3 -m clingo-fast-api
+python3 -m clingo_fast_api
 ```
 
 - **Built with Poetry**: Manage the project dependencies and settings with ease using Poetry.
@@ -28,7 +28,7 @@ git clone https://github.com/ryuk4real/clingo-fast-api.git
 2. Navigate to the project directory:
 
 ```bash
-cd clingo-fast-api
+cd clingo_fast_api
 ```
 
 3. Install dependencies using Poetry:
