@@ -36,7 +36,7 @@ async def run(body: str = Body(..., media_type="text/plain")) -> list:
     def on_model(model: Model):
         answer_sets.append(to_atoms(model))
 
-    control: Control = Control(arguments=["-n0"])
+    control: Control = Control(arguments=["-n 1000"])
     program = body
 
     if not program:
